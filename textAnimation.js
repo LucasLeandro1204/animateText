@@ -8,15 +8,23 @@
 /**
  * Text Animation
  * 
- * @param {string} selector - The element containing the text.
- * @param {obj} a - The animation properties.
+ * @param {String} selector - The element containing the text.
+ *
+ * @param {Object} a - The animation properties.
+ * @property {String} name - The animation name. Requires a CSS Keyframe declared. Default: "fadeIn"
+ * @property {Number} duration - The animation duration, declared in MILISECONDS. Default: 3000
+ * @property {Number} count - The times this animation will run. Default: 1
+ * @property {String} fill - The animation fill mode. Default: "forwards"
+ * @property {String} timing - The animation timing. Default OUT-QUAD: "cubic-bezier(0.215, 0.61, 0.355, 1)"
+ * @property {Number} delay - The delay for the first element animated. Default: 0
+ * @property {Number} additionalDelay - The amount of delay to stack up on the other. Default: 75
  */
 
-function fadeIn(selector, a) {
+function fadeIn(selector, a = { name, duration, count, fill, timing, delay, additionalDelay}) {
 
   (!!a.name) ? a.name : a.name = "fadeIn";
-  (!!a.duration) ? a.duration : a.duration = "3s";
-  (!!a.count) ? a.count : a.count = "1";
+  (!!a.duration) ? a.duration : a.duration = 3000;
+  (!!a.count) ? a.count : a.count = 1;
   (!!a.fill) ? a.fill : a.fill = "forwards";
   (!!a.timing) ? a.timing : a.timing = "cubic-bezier(0.215, 0.61, 0.355, 1)";
   (!!a.delay) ? a.delay : a.delay = 0;
@@ -38,7 +46,7 @@ function fadeIn(selector, a) {
       s.style.opacity = "0";
       s.style.display = "inline-block";
       s.style.animationName = a.name;
-      s.style.animationDuration = a.duration;
+      s.style.animationDuration = a.duration + "ms";
       s.style.animationIterationCount = a.count;
       s.style.animationFillMode = a.fill,
       s.style.animationTimingFunction = a.timing;
