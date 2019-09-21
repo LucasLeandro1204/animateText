@@ -1,4 +1,4 @@
-function fadeIn(selector, delay) {
+function fadeIn(selector, elClass = "active", delay = 0) {
 
   var elsArray = [].slice.call(document.querySelectorAll(selector));
   var d = delay;
@@ -14,7 +14,7 @@ function fadeIn(selector, delay) {
       s.appendChild(t);
       el.appendChild(s);
       s.style.animationDelay = d + "ms";
-      s.classList.add('active');
+      s.classList.add(elClass);
       d += 75;
     }
   });
