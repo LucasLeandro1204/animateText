@@ -34,6 +34,9 @@ function animateText(selector, a = { name, duration, count, fill, timing, delay,
       var t = document.createTextNode(c);
       var s = document.createElement('span');
       s.classList.add('s');
+      if (c === " ") {
+        s.innerHTML = "&nbsp;";
+      }
       s.appendChild(t);
       el.appendChild(s);
       s.style.opacity = "0";
