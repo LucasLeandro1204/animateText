@@ -1,11 +1,4 @@
 /**
- * @file Text Animation
- * @author E. Design <contato@eryc.design>
- * @version 0.1
- */
-
-
-/**
  * Text Animation
  * 
  * @param {String} selector - The element containing the text.
