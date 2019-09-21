@@ -10,23 +10,9 @@
   display: block;
 }
 
-.t .s {
-  display: inline-block;
-  opacity: 0;
-}
-
-.t .s.active {
-  animation-duration: 3s;
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  animation-fill-mode: forwards;
-}
 
 /************** 
-
 Keyframes
-
 ***************/
 
 @keyframes fadeIn {
@@ -40,13 +26,11 @@ Keyframes
     opacity: 1;
   }
 }
-
 /* // Keyframes */
 
+
 /************** 
-
 Document Styles 
-
 ***************/
 
 :root {
@@ -71,5 +55,4 @@ main {
   justify-content: center;
   align-items: center;
 }
-
 /* // Document Styles */
