@@ -13,7 +13,7 @@
  * @property {Number} additionalDelay - The amount of delay to stack up on the other. Default: 75
  */
 
-function fadeIn(selector, a = { name, duration, count, fill, timing, delay, additionalDelay}) {
+function animateText(selector, a = { name, duration, count, fill, timing, delay, additionalDelay}) {
 
   (!!a.name) ? a.name : a.name = "fadeIn";
   (!!a.duration) ? a.duration : a.duration = 3000;

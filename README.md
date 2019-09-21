@@ -34,7 +34,7 @@ This keyframe will move the character up and slowly make it visible.
 Then select trigger the animation on the element you want to animate.
 
 ```javascript
-fadeIn('.el')
+animateText('.el')
 ```
 
 Replace `.el` with the element you want to animate.
@@ -54,13 +54,13 @@ You can customize the animation by passing the attribute values as an object in 
 
 ```javascript
 // Change the Duration
-fadeIn('#id', {duration: 2000});
+animateText('#id', {duration: 2000});
 
 // Set the name of the keyframe
-fadeIn('#id', {name: 'moveUp'});
+animateText('#id', {name: 'moveUp'});
 
 // Change multiple attributes
-fadeIn('#id', {
+animateText('#id', {
   duration: 1000,
   delay: 200
 })
@@ -72,7 +72,7 @@ fadeIn('#id', {
 Define the name of the keyframe. Default: `name: "fadeIn"`
 
 ```js
-fadeIn('el', {name: 'animationName'})
+animateText('el', {name: 'animationName'})
 ```
 
 **If your keyframe isn't name "fadeIn", you should declare the name.**
@@ -83,7 +83,7 @@ fadeIn('el', {name: 'animationName'})
 Define how long the animation will take, from start to finish, in MILISECONDS. Default `duration: 3000`
 
 ```js
-fadeIn('el', {duration: 3000})
+animateText('el', {duration: 3000})
 ```
 
 #### Count
@@ -92,7 +92,7 @@ fadeIn('el', {duration: 3000})
 Define how many times the animation will run. Default `count: 1`
 
 ```js
-fadeIn('el', {count: 1})
+animateText('el', {count: 1})
 ```
 
 #### Fill
@@ -101,7 +101,7 @@ fadeIn('el', {count: 1})
 Defines the animation fill mode. Default `fill: "forwards"`
 
 ```js
-fadeIn('el', {fill: "forwards"})
+animateText('el', {fill: "forwards"})
 ```
 
 #### Timing
@@ -110,7 +110,7 @@ fadeIn('el', {fill: "forwards"})
 Defines the animation timing easing. Default `timing: "cubic-bezier(0.215, 0.61, 0.355, 1)"`
 
 ```js
-fadeIn('el', {timing: "cubic-bezier(0.215, 0.61, 0.355, 1)"})
+animateText('el', {timing: "cubic-bezier(0.215, 0.61, 0.355, 1)"})
 ```
 
 #### Delay
@@ -119,7 +119,7 @@ fadeIn('el', {timing: "cubic-bezier(0.215, 0.61, 0.355, 1)"})
 Defines the animation delay. Default `delay: 0"`
 
 ```js
-fadeIn('el', {delay: 0"})
+animateText('el', {delay: 0"})
 ```
 
 #### Additional Delay
@@ -128,7 +128,7 @@ fadeIn('el', {delay: 0"})
 Defines the amount of delay to stack up on the next characters. Default `additionalDelay: 0"`
 
 ```js
-fadeIn('el', {additionalDelay: 0"})
+animateText('el', {additionalDelay: 0"})
 ```
 
 ### You can also pass it as a JSON
@@ -140,7 +140,7 @@ var attributes = {
   additionalDelay: 90
 }
 
-fadeIn('el', attributes);
+animateText('el', attributes);
 ```
 
 ## Author
