@@ -1,53 +1,61 @@
 /**
  * Text Animation
  * 
- * @param {String} selector - The element containing the text.
+ * @param {string} selector - The element containing the text.
  *
- * @param {Object} a - The animation properties.
- * @property {String} name - The animation name. Requires a CSS Keyframe declared. Default: "fadeIn"
- * @property {Number} duration - The animation duration, declared in MILISECONDS. Default: 3000
- * @property {Number} count - The times this animation will run. Default: 1
- * @property {String} fill - The animation fill mode. Default: "forwards"
- * @property {String} timing - The animation timing. Default OUT-QUAD: "cubic-bezier(0.215, 0.61, 0.355, 1)"
- * @property {Number} delay - The delay for the first element animated. Default: 0
- * @property {Number} additionalDelay - The amount of delay to stack up on the other. Default: 75
+ * @param {object} a - The animation properties.
+ * @property {string} name - The animation name. Requires a CSS Keyframe declared. Default: "fadeIn"
+ * @property {number} duration - The animation duration, declared in MILISECONDS. Default: 3000
+ * @property {number} count - The times this animation will run. Default: 1
+ * @property {string} fill - The animation fill mode. Default: "forwards"
+ * @property {string} timing - The animation timing. Default OUT-QUAD: "cubic-bezier(0.215, 0.61, 0.355, 1)"
+ * @property {number} delay - The delay for the first element animated. Default: 0
+ * @property {number} additionalDelay - The amount of delay to stack up on the other. Default: 75
  */
 
-function animateText(selector, a = { name, duration, count, fill, timing, delay, additionalDelay}) {
+function animateText(selector, {
+  count = 1,
+  delay = 0,
+  name = 'fadeIn',
+  duration = 3000,
+  fill = 'forwards',
+  additionalDelay = 75,
+  timing = 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+} = {}) {
+  const elements = [].slice.call(document.querySelectorAll(selector));
+  let offset = delay;
 
-  (!!a.name) ? a.name : a.name = "fadeIn";
-  (!!a.duration) ? a.duration : a.duration = 3000;
-  (!!a.count) ? a.count : a.count = 1;
-  (!!a.fill) ? a.fill : a.fill = "forwards";
-  (!!a.timing) ? a.timing : a.timing = "cubic-bezier(0.215, 0.61, 0.355, 1)";
-  (!!a.delay) ? a.delay : a.delay = 0;
-  (!!a.additionalDelay) ? a.additionalDelay : a.additionalDelay = 75;
+  for (const element of elements) {
+    const text = element.innerText;
 
-  var elsArray = [].slice.call(document.querySelectorAll(selector));
-  var d = a.delay;
+    element.innerText = '';
 
-  elsArray.forEach(function (el, index) {
-    var text = el.innerText;
-    el.innerText = "";
+    for (let x = 0, char = ''; char = text.charAt(x); x++) {
+      const text = document.createT́extNode(char);
+      const span = document.createElement('span');
 
-    for (var x = 0, c = ''; c = text.charAt(x); x++) {
-      var t = document.createTextNode(c);
-      var s = document.createElement('span');
-      s.classList.add('s');
-      if (c === " ") {
-        s.innerHTML = "&nbsp;";
+      span.classList.add('s');
+
+      if (char === ' ') {
+        span.innerHTML = '&nbsp;';
       }
-      s.appendChild(t);
-      el.appendChild(s);
-      s.style.opacity = "0";
-      s.style.display = "inline-block";
-      s.style.animationName = a.name;
-      s.style.animationDuration = a.duration + "ms";
-      s.style.animationIterationCount = a.count;
-      s.style.animationFillMode = a.fill,
-      s.style.animationTimingFunction = a.timing;
-      s.style.animationDelay = d + "ms";
-      d += a.additionalDelay;
+
+      span.appendChild(text);
+      element.appendChild(span);
+
+      /**
+       * Define span element syles.
+       */
+      span.style.opacity = '0';
+      span.style.display = 'inline-block';
+      span.style.animationName = name;
+      span.style.animationDuration = `${duration}ms`;
+      span.style.animationIterationCount = count;
+      span.style.animationFillMode = fill,
+      span.style.animationTimingFunction = timing;
+      span.style.animationDelay = `${offset}ms`;
+
+      offset += additionalDelay;
     }
-  });
+  }
 }
