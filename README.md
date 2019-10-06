@@ -11,7 +11,7 @@ Inspired by the text effects introduced in the [Once Upon a Time in Hollywood Ma
 It's really simple. Add the script tag on your HTML.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/happycrappie/animateText@0.0.1/dist/animate-text.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/happycrappie/animateText/dist/animate-text.umd.js"></script>
 ```
 
 Then create a `@keyframe` in CSS—that will be your animation. Eg:
