@@ -13,7 +13,7 @@
  * @property {number} additionalDelay - The amount of delay to stack up on the other. Default: 75
  */
 
-function animateText(selector, {
+export default function animateText(selector, {
   count = 1,
   delay = 0,
   name = 'fadeIn',
