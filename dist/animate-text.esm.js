@@ -31,7 +31,7 @@ function animateText(selector, {
     element.innerText = '';
 
     for (let x = 0, char = ''; char = text.charAt(x); x++) {
-      const text = document.createT́extNode(char);
+      const text = document.createTextNode(char);
       const span = document.createElement('span');
 
       span.classList.add('s');

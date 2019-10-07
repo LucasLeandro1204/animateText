@@ -48,7 +48,7 @@
         element.innerText = '';
 
         for (var x = 0, _char = ''; _char = text.charAt(x); x++) {
-          var _text = document.createT́extNode(_char);
+          var _text = document.createTextNode(_char);
 
           var span = document.createElement('span');
           span.classList.add('s');
